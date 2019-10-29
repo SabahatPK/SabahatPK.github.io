@@ -24,8 +24,6 @@ StackedArea.prototype.initVis = function() {
       : (vis.genderTitle = "")
   );
 
-  console.log($("#allGenderGraphsTitle").html(vis.genderTitle));
-
   (vis.width =
     vis.dimensions["width"] -
     vis.dimensions.marginLeft -
@@ -87,8 +85,8 @@ StackedArea.prototype.initVis = function() {
   vis.color1 = d3.scaleOrdinal(d3.schemePaired).domain(vis.keys);
 
   //Define axes:
-  vis.xAxis1 = d3.axisBottom(vis.xScale1);
-  vis.yAxis1 = d3.axisLeft(vis.yScale1);
+  vis.xAxis1 = d3.axisBottom(vis.xScale1).ticks(3);
+  vis.yAxis1 = d3.axisLeft(vis.yScale1).ticks(5);
 
   //Place axes on chart:
   vis.xAxisCall = vis.g
@@ -143,6 +141,11 @@ StackedArea.prototype.wrangleData = function(begDate, endDate) {
 
 StackedArea.prototype.updateVis = function() {
   let vis = this;
+
+  //outs - how to make graphs dissapear and place this text in it's place?
+  // if (vis.filteredData.length === 0) {
+  //   console.log("There is no data available for this time period.");
+  // }
 
   //Update graph based on new data:
   vis.justDates = vis.filteredData.map(each => each.Date);

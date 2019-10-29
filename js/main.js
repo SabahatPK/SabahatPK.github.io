@@ -125,8 +125,8 @@ Promise.all(promises).then(function(allData) {
     marginBottom: 50
   };
   let largeDimensions = {
-    height: 600,
-    width: 500,
+    height: 450,
+    width: 400,
     marginLeft: 80,
     marginRight: 40,
     marginTop: 50,
