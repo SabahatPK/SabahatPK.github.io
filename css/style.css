@@ -1,0 +1,82 @@
+#chart-area svg {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#logo {
+  height: 50px;
+}
+
+.navbar-brand {
+  height: 60px;
+  padding: 5px 0px;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #d4d8da;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle {
+  fill: #f1f3f3;
+  stroke: #777;
+  stroke-width: 3px;
+}
+
+.hover-line {
+  stroke: #777;
+  stroke-width: 2px;
+  stroke-dasharray: 3, 3;
+}
+
+#selections .col-md-4 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.chart-area-all {
+  /* border: 1px solid blueviolet; */
+}
+
+.allGenderGraphs {
+  position: relative;
+}
+
+#pkMap {
+  /* border: 5px solid #ccc; */
+  position: absolute;
+  right: 355px;
+  top: 300px;
+  z-index: -1;
+}
+
+/* OUTS - slide no longer works after scrolling down  */
+#selections {
+  position: sticky;
+  top: 0;
+  background-color: #b2df8a;
+}
+
+#dateLabel1,
+#dateLabel2 {
+  color: white;
+}
