@@ -1,3 +1,7 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
 #chart-area svg {
   margin-left: auto;
   margin-right: auto;
@@ -6,6 +10,10 @@
 
 #logo {
   height: 50px;
+}
+
+#logoText {
+  font-size: 30px;
 }
 
 .navbar-brand {
@@ -53,10 +61,6 @@
   padding-bottom: 10px;
 }
 
-.chart-area-all {
-  /* border: 1px solid blueviolet; */
-}
-
 .allGenderGraphs {
   position: relative;
 }
@@ -73,7 +77,10 @@
 #selections {
   position: sticky;
   top: 0;
-  background-color: #b2df8a;
+  background-color: rgb(142, 187, 217);
+  border: black;
+  border-width: 10px;
+  z-index: 1;
 }
 
 #dateLabel1,
@@ -89,7 +96,7 @@
   z-index: 99; /* Make sure it does not overlap */
   border: none; /* Remove borders */
   outline: none; /* Remove outline */
-  background-color: #279af1; /* Set a background color */
+  background-color: rgb(142, 187, 217); /* Set a background color */
   color: white; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 15px; /* Some padding */
@@ -100,3 +107,28 @@
 #myBtn:hover {
   background-color: #555; /* Add a dark-grey background on hover */
 }
+
+/* DElete after sorting out map */
+#content .info {
+  height: 20px;
+}
+
+#content .map path {
+  fill: #aaa;
+  stroke: #fff;
+}
+
+#content .bounding-box rect {
+  fill: none;
+  stroke: #333;
+  stroke-dasharray: 2, 1;
+}
+
+#content .centroid {
+  display: none;
+}
+
+#content .centroid circle {
+  fill: red;
+}
+/* End of africa map styling */

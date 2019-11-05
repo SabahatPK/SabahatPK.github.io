@@ -5,10 +5,8 @@ MapChart = function(_parentElement, _featuresData, _meshData) {
   this.initVis();
 };
 
-//OUTS - click on province to isolate that data in area charts; wishlist
-//outs - might have to use this library instead?
-//https://github.com/markmarkoh/datamaps#getting-started
-//https://github.com/markmarkoh/datamaps#using-custom-maps
+//OUTS - click on province to isolate that data in area charts
+//OUTS - allow map to size down with containers.
 
 MapChart.prototype.initVis = function() {
   let vis = this;
@@ -32,7 +30,7 @@ MapChart.prototype.initVis = function() {
 
   vis.svg
     .append("path")
-    .attr("fill", "#CC5803")
+    .attr("fill", "rgb(255, 208, 44)")
     .datum(vis.pakFeaturesData)
     .attr("class", "land")
     .attr("d", vis.path)

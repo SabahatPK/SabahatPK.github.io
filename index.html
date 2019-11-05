@@ -11,24 +11,31 @@
     <link rel="stylesheet" href="css/jquery-ui.structure.min.css" />
     <link rel="stylesheet" href="css/jquery-ui.theme.min.css" />
     <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
   </head>
+
+  <!-- outs: need to learn how to work with branches like Git was MEANT to be used!! -->
 
   <body>
     <nav class="navbar navbar-default">
       <div class="container">
-        <a class="navbar-brand" href="#"
-          ><img id="logo" src="img/noun_Pakistan_777656_v1.png" />Financial
-          Inclusion Data Dashboard</a
-        >
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#Footnote1">About This Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#Footnote2">About Me</a>
-          </li>
-        </ul>
+        <a class="navbar-brand" href="#">
+          <span id = "logoText">
+            <img id="logo" src="img/noun_Pakistan_777656_v1.png" /> Pakistan Financial
+            Inclusion Data Dashboard</a
+          >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#Footnote1">About This Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Footnote2">About Me</a>
+            </li>
+          </ul>
+
+          </span>
+         
       </div>
     </nav>
 
@@ -38,19 +45,21 @@
     <div class="container">
       <div id="selections" class="row">
         <p id="loading"></p>
-        <div class="col-md-12">
+        <div class="col-md-10">
           <div id="slider"></div>
           <label
             ><span id="dateLabel1"></span><span id="dateLabel2"></span
           ></label>
         </div>
+        <div class="col-md-2">
+          <div><button id="reset">Reset</button></div>
+        </div>
       </div>
 
-      <!-- OUTS - https://stackoverflow.com/questions/58612134/how-to-make-a-sticky-d3-slider-remain-functional-as-page-scrolls -->
       <h3>Agents and Accounts</h3>
       <div class="row">
-        <div class="col-md-6 chart-area-all" id="chart-area1"></div>
-        <div class="col-md-6 chart-area-all" id="chart-area2"></div>
+        <div class="col-md-6" id="chart-area1"></div>
+        <div class="col-md-6" id="chart-area2"></div>
       </div>
 
       <br />
@@ -58,28 +67,28 @@
       <div class="allGenderGraphs">
         <h3 id="allGenderGraphsTitle">Account Ownership By Gender</h3>
         <div class="row">
-          <div class="col-md-4 chart-area-all"></div>
-          <div class="col-md-4 chart-area-all" id="chart-area4"></div>
-          <div class="col-md-4 chart-area-all" id="chart-area5"></div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4" id="chart-area4"></div>
+          <div class="col-md-4" id="chart-area5"></div>
         </div>
 
         <div class="row">
-          <div class="col-md-4 chart-area-all" id="chart-area3"></div>
-          <div class="col-md-4 chart-area-all"></div>
-          <div class="col-md-4 chart-area-all" id="chart-area7"></div>
+          <div class="col-md-4" id="chart-area3"></div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4" id="chart-area7"></div>
         </div>
 
         <div class="row">
-          <div class="col-md-4 chart-area-all" id="chart-area6"></div>
-          <div class="col-md-4 chart-area-all"></div>
-          <div class="col-md-4 chart-area-all" id="chart-area8"></div>
+          <div class="col-md-4" id="chart-area6"></div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4" id="chart-area8"></div>
         </div>
 
         <div class="row">
-          <div class="col-md-3 chart-area-all"></div>
-          <div class="col-md-3 chart-area-all"></div>
-          <div class="col-md-3 chart-area-all"></div>
-          <div class="col-md-3 chart-area-all"></div>
+          <div class="col-md-3"></div>
+          <div class="col-md-3"></div>
+          <div class="col-md-3"></div>
+          <div class="col-md-3"></div>
         </div>
 
         <div class="row" id="pkMap">
@@ -87,8 +96,19 @@
         </div>
       </div>
 
+      <!-- Delete after sorting out Africa map -->
+      <!-- <div id="content">
+        <div class="info">Hover over a country</div>
+        <svg width="620px" height="600px">
+          <g class="map"></g>
+          <g class="bounding-box"><rect></rect></g>
+          <g class="centroid"><circle r="4"></circle></g>
+        </svg>
+      </div> -->
+      <!-- END OF - delete after sorting out Africa map -->
+
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-8">
           <h4 id="Footnote1">
             About This Dashboard:
           </h4>
@@ -102,13 +122,14 @@
           </p>
           <h4 id="Footnote2">About Me</h4>
           <p>
-            I am financial inclusion specialist who often has to trawl through
-            obscure government databases to develop country-level analyses. I
-            thought it would be nice to develop a one-stop place for all data
-            available for at least one country.
-          </p>
+            I am a
+            <a href="https://www.linkedin.com/in/sabahatiqbal/" target="_blank"
+              >global financial inclusion specialist </a
+            >who often has to trawl through obscure government databases to
+            develop country-level analyses. One web site encapsulating all
+            financial inclusion data related to Pakistan would have been useful so I decided to create one.</p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
           <button onclick="topFunction()" id="myBtn" title="Go to top">
             Back To Top
           </button>
@@ -122,9 +143,11 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/d3.min.js"></script>
     <script src="//d3js.org/topojson.v2.min.js"></script>
+    <script src="node_modules/datamaps/dist/datamaps.world.min.js"></script>
     <!-- Custom JS -->
     <script src="js/mainStackArea.js"></script>
     <script src="js/mainMap.js"></script>
+    <!-- <script src="js/mapOnly.js"></script> -->
     <script src="js/main.js"></script>
   </body>
 </html>
