@@ -21,6 +21,14 @@ body {
   padding: 5px 0px;
 }
 
+.navbar {
+  background-color: transparent;
+}
+
+.nav-item {
+  margin-right: 100px;
+}
+
 .axis {
   font: 10px sans-serif;
 }
@@ -73,7 +81,6 @@ body {
   z-index: -1;
 }
 
-/* OUTS - slide no longer works after scrolling down  */
 #selections {
   position: sticky;
   top: 0;

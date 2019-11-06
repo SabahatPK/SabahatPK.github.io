@@ -152,12 +152,15 @@ Promise.all(promises).then(function(allData) {
     marginBottom: 100
   };
 
+  //OUTS - how to ensure chart title does not overlap with charts but still loads up with
+  //each constructor function?
   stackAreaChart1 = new StackedArea(
     "#chart-area1",
     agentData,
     keys,
     largeDimensions
   );
+
   stackAreaChart2 = new StackedArea(
     "#chart-area2",
     agentData,
