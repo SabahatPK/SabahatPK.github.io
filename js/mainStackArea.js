@@ -10,6 +10,12 @@ StackedArea = function(_parentElement, _allData, _keys, _dimensionSVG) {
 StackedArea.prototype.initVis = function() {
   let vis = this;
 
+  // if (vis.genderTrue === true) {
+  //   $("#graphTitle").html("Gender Breakdown By Province");
+  // } else {
+  //   $("#graphTitle").html("Volume of Accounts and Agents");
+  // }
+
   vis.nestedData = d3
     .nest()
     .key(function(d) {
@@ -173,8 +179,22 @@ StackedArea.prototype.updateVis = function() {
     .attr("d", vis.area1)
     .style("fill", function(d) {
       return vis.color1(d.key);
-    })
-    .style("fill-opacity", 0.5);
+    });
+
+  //Handle pretty transitions:
+  vis.svg
+    .style("width", "0%")
+    .transition()
+    .ease(d3.easeLinear)
+    .duration(1000)
+    .style("width", "100%");
+
+  vis.blob
+    .style("fill-opacity", 0)
+    //outs - update transition so it builds from left to right
+    //comme ca: https://jsfiddle.net/dzo36njt/5/
+    .transition(d3.transition().duration(1000))
+    .style("fill-opacity", 1);
 };
 
 StackedArea.prototype.addLegend = function() {

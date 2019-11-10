@@ -1,5 +1,3 @@
-let stackAreaChart1;
-
 let promises = [
   d3.json(
     "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/pakistan/pakistan-provinces.json"
@@ -52,8 +50,6 @@ $("#reset").click(function() {
 });
 
 //outs - where does it make sense to add in regional comparisons, income gp comparisons
-//outs - change colors to be grey scale? #design
-
 //outs - Test this by adding delay diliberately; also needs to be on empty page; so slider has to be loaded after data?
 while (promises.length.length === 0) {
   $("#loading").html("Data loading...");
@@ -143,79 +139,96 @@ Promise.all(promises).then(function(allData) {
     marginTop: 25,
     marginBottom: 50
   };
-  let largeDimensions = {
-    height: 450,
-    width: 400,
-    marginLeft: 80,
-    marginRight: 40,
-    marginTop: 50,
-    marginBottom: 100
-  };
 
-  //OUTS - how to ensure chart title does not overlap with charts but still loads up with
-  //each constructor function?
-  stackAreaChart1 = new StackedArea(
-    "#chart-area1",
-    agentData,
-    keys,
-    largeDimensions
-  );
+  //Choose graphs to visualize:
+  $("#indicatorType").change(function() {
+    //Remove any old graphs; but this might not be in the right spot (outs):
+    d3.selectAll("#chart-area1 > *").remove();
+    d3.selectAll("#chart-area2 > *").remove();
+    d3.selectAll("#chart-area3 > *").remove();
+    d3.selectAll("#chart-area4 > *").remove();
+    d3.selectAll("#chart-area5 > *").remove();
+    d3.selectAll("#chart-area6 > *").remove();
+    d3.selectAll("#chart-area7 > *").remove();
+    d3.selectAll("#chart-area8 > *").remove();
 
-  stackAreaChart2 = new StackedArea(
-    "#chart-area2",
-    agentData,
-    keys1,
-    largeDimensions
-  );
-  stackAreaChart3 = new StackedArea(
-    "#chart-area5",
-    onlyAzadKashmir,
-    keys2,
-    smallDimensions
-  );
-  stackAreaChart4 = new StackedArea(
-    "#chart-area6",
-    onlyBalochistan,
-    keys2,
-    smallDimensions
-  );
-  stackAreaChart5 = new StackedArea(
-    "#chart-area4",
-    onlyGilgitBaltistan,
-    keys2,
-    smallDimensions
-  );
-  stackAreaChart6 = new StackedArea(
-    "#chart-area7",
-    onlyPunjabIncludingISB,
-    keys2,
-    smallDimensions
-  );
-  stackAreaChart7 = new StackedArea(
-    "#chart-area3",
-    onlyKhyberPakhtunkhwa,
-    keys2,
-    smallDimensions
-  );
-  stackAreaChart8 = new StackedArea(
-    "#chart-area8",
-    onlySindh,
-    keys2,
-    smallDimensions
-  );
+    //outs - rando graphs are being created and there is no default upon page load
+    let graphType = $(this).val();
+    console.log(graphType);
+    if (graphType === "gender") {
+      console.log("graphType is true");
 
-  pakMap = new MapChart("#chart-area9", pkFeaturesData, pkMeshData);
+      stackAreaChart3 = new StackedArea(
+        "#chart-area3",
+        onlyAzadKashmir,
+        keys2,
+        smallDimensions
+      );
+      stackAreaChart4 = new StackedArea(
+        "#chart-area4",
+        onlyBalochistan,
+        keys2,
+        smallDimensions
+      );
+      stackAreaChart5 = new StackedArea(
+        "#chart-area5",
+        onlyGilgitBaltistan,
+        keys2,
+        smallDimensions
+      );
+      stackAreaChart6 = new StackedArea(
+        "#chart-area6",
+        onlyPunjabIncludingISB,
+        keys2,
+        smallDimensions
+      );
+      stackAreaChart7 = new StackedArea(
+        "#chart-area7",
+        onlyKhyberPakhtunkhwa,
+        keys2,
+        smallDimensions
+      );
+      stackAreaChart8 = new StackedArea(
+        "#chart-area8",
+        onlySindh,
+        keys2,
+        smallDimensions
+      );
+    } else {
+      console.log("graphType is false");
+      stackAreaChart1 = new StackedArea(
+        "#chart-area1",
+        agentData,
+        keys,
+        smallDimensions
+      );
+
+      stackAreaChart2 = new StackedArea(
+        "#chart-area2",
+        agentData,
+        keys1,
+        smallDimensions
+      );
+    }
+  });
 });
 
+//outs - create unit tests that can be rerun!
+
 function updateCharts() {
-  stackAreaChart1.wrangleData(sliderBegDate, sliderEndDate);
-  stackAreaChart2.wrangleData(sliderBegDate, sliderEndDate);
-  stackAreaChart3.wrangleData(sliderBegDate, sliderEndDate);
-  stackAreaChart4.wrangleData(sliderBegDate, sliderEndDate);
-  stackAreaChart5.wrangleData(sliderBegDate, sliderEndDate);
-  stackAreaChart6.wrangleData(sliderBegDate, sliderEndDate);
-  stackAreaChart7.wrangleData(sliderBegDate, sliderEndDate);
-  stackAreaChart8.wrangleData(sliderBegDate, sliderEndDate);
+  console.log($("#indicatorType").val());
+
+  if ($("#indicatorType").val() === "gender") {
+    stackAreaChart3.wrangleData(sliderBegDate, sliderEndDate);
+    stackAreaChart4.wrangleData(sliderBegDate, sliderEndDate);
+    stackAreaChart5.wrangleData(sliderBegDate, sliderEndDate);
+    stackAreaChart6.wrangleData(sliderBegDate, sliderEndDate);
+    stackAreaChart7.wrangleData(sliderBegDate, sliderEndDate);
+    stackAreaChart8.wrangleData(sliderBegDate, sliderEndDate);
+  } else {
+    stackAreaChart1.wrangleData(sliderBegDate, sliderEndDate);
+    stackAreaChart2.wrangleData(sliderBegDate, sliderEndDate);
+  }
 }
 
 //"Go to top" button:

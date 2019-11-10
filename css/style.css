@@ -85,11 +85,15 @@ body {
 }
 
 #pkMap {
-  /* border: 5px solid #ccc; */
   position: absolute;
   right: 300px;
   top: 200px;
-  z-index: -1;
+  /* outs: do I need this z-index value; had to comment out in order to make hover work */
+  /* z-index: -1; */
+}
+
+.land:hover {
+  fill: blueviolet;
 }
 
 #selections {
