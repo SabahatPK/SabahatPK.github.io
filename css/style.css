@@ -1,3 +1,5 @@
+/* outs/design - I like this color; use somwhere else as complementary color: // .style("fill", "ff8350") */
+
 body {
   font-family: "Open Sans", sans-serif;
 }
@@ -6,6 +8,7 @@ body {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
+  padding: 15px;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -21,10 +24,11 @@ body {
 
 #logo {
   height: 50px;
+  padding: 10px;
 }
 
 #logoText {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .navbar-brand {
@@ -92,6 +96,11 @@ body {
   /* z-index: -1; */
 }
 
+/* outs: why is the title not showing up on top of graph */
+.graphTitle {
+  z-index: 1;
+}
+
 .land:hover {
   fill: blueviolet;
 }
@@ -103,6 +112,7 @@ body {
   border: black;
   border-width: 10px;
   z-index: 1;
+  padding-top: 10px;
 }
 
 #dateLabel1,
@@ -130,27 +140,21 @@ body {
   background-color: #555; /* Add a dark-grey background on hover */
 }
 
-/* DElete after sorting out map */
-#content .info {
-  height: 20px;
+/* Map styling: */
+.district:hover {
+  fill: gold;
 }
 
-#content .map path {
-  fill: #aaa;
-  stroke: #fff;
+/* outs - how to wrap text? */
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 80px;
+  height: 28px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
 }
-
-#content .bounding-box rect {
-  fill: none;
-  stroke: #333;
-  stroke-dasharray: 2, 1;
-}
-
-#content .centroid {
-  display: none;
-}
-
-#content .centroid circle {
-  fill: red;
-}
-/* End of africa map styling */

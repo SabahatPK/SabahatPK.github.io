@@ -1,27 +1,30 @@
+//start here : practice map-making!! Watch Kurran videos and others.
+
 let promises = [
-  d3.json(
-    "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/pakistan/pakistan-provinces.json"
-  ),
   d3.csv("data/AgentAccountData.csv"),
-  d3.csv("data/GenderByProvince.csv")
+  d3.csv("data/GenderByProvince.csv"),
+  d3.json("/data/pakistan/pakistan-districts.json"),
+  d3.json("/data/pakistan/pakistan-provinces.json"),
+  //outs - this data will have to be replaced eventually:
+  d3.csv("data/microfinance/pakMFDummyData.csv")
 ];
 
 let parseTime = d3.timeParse("%Y");
 let formatTime = d3.timeFormat("%B %d, %Y");
 
 let sliderBegDate = new Date("1/1/2012");
-let sliderEndDate = new Date("12/31/2017");
+let sliderEndDate = new Date("12/31/2018");
 
 $("#dateLabel1").text("From " + formatTime(new Date("1/1/2012")));
-$("#dateLabel2").text(" to " + formatTime(new Date("12/31/2017")));
+$("#dateLabel2").text(" to " + formatTime(new Date("12/31/2018")));
 
 // Add jQuery UI slider
 $("#slider").slider({
   range: true,
-  min: new Date("2012").getTime(),
-  max: new Date("2019").getTime(),
+  min: new Date("1/1/2012").getTime(),
+  max: new Date("12/31/2018").getTime(),
   step: new Date("4/1/2010").getTime() - new Date("1/1/2010").getTime(),
-  values: [new Date("2012").getTime(), new Date("2019").getTime()],
+  values: [new Date("1/1/2012").getTime(), new Date("12/31/2018").getTime()],
   slide: function(event, ui) {
     sliderBegDate = new Date(ui.values[0]);
     sliderEndDate = new Date(ui.values[1]);
@@ -32,10 +35,11 @@ $("#slider").slider({
 });
 
 //Button to reset slider back to default dates
+//outs - slider Reset button sets end date to Nov 23 2018 instead of Dec 31 2018.
 $("#reset").click(function() {
   $("#slider").slider("values", [
-    new Date("2012").getTime(),
-    new Date("2019").getTime()
+    new Date("1/1/2012").getTime(),
+    new Date("12/31/2018").getTime()
   ]);
 
   let resetSliderDates = $("#slider").slider("values");
@@ -50,23 +54,17 @@ $("#reset").click(function() {
 });
 
 //outs - where does it make sense to add in regional comparisons, income gp comparisons
-//outs - Test this by adding delay diliberately; also needs to be on empty page; so slider has to be loaded after data?
-while (promises.length.length === 0) {
-  $("#loading").html("Data loading...");
-}
 
 Promise.all(promises).then(function(allData) {
-  let geoData = allData[0];
-  let agentData = allData[1];
-  let genderData = allData[2];
+  let agentData = allData[0];
+  let genderData = allData[1];
+  let pkDistrict = allData[2];
+  let pkProvince = allData[3];
+  let pkDistMF = allData[4];
 
-  let pkFeaturesData = topojson.feature(geoData, geoData.objects.PAK_adm1);
-  let pkMeshData = topojson.mesh(geoData, geoData.objects.PAK_adm1, function(
-    a,
-    b
-  ) {
-    return a !== b;
-  });
+  const districts = topojson.feature(pkDistrict, pkDistrict.objects.PAK_adm3);
+
+  const provinces = topojson.feature(pkProvince, pkProvince.objects.PAK_adm1);
 
   // Prepare and clean agent, account data
   //OUTS - there has to be a way to cycle through each dataset via allData
@@ -97,13 +95,29 @@ Promise.all(promises).then(function(allData) {
     }
   });
 
+  pkDistMF.forEach(function(d) {
+    //Update all values to be numbers/dates instead of string
+    for (let property in d) {
+      if (
+        d.hasOwnProperty(property) &&
+        property !== "Date" &&
+        property !== "Province" &&
+        property !== "District"
+      ) {
+        d[property] = parseFloat(d[property].replace(/,/g, ""));
+      } else if (d.hasOwnProperty(property) && property == "Date") {
+        d[property] = new Date(d[property]);
+      }
+    }
+  });
+
   //Prep and clean gender data
-  var nestedGenderData = d3
-    .nest()
-    .key(function(d) {
-      return d.Province;
-    })
-    .entries(genderData);
+  // var nestedGenderData = d3 //outs - delete by Nov 20 if not being used anywhere
+  //   .nest()
+  //   .key(function(d) {
+  //     return d.Province;
+  //   })
+  //   .entries(genderData);
 
   let onlyAzadKashmir = genderData.filter(
     each => each.Province === "Azad Kashmir"
@@ -140,9 +154,33 @@ Promise.all(promises).then(function(allData) {
     marginBottom: 50
   };
 
+  let largeDimensions = {
+    height: 800,
+    width: 800,
+    marginLeft: 60,
+    marginRight: 20,
+    marginTop: 25,
+    marginBottom: 50
+  };
+
+  //Set up default visualization - upon 1st page load:
+  stackAreaChart1 = new StackedArea(
+    "#chart-area1",
+    agentData,
+    keys,
+    smallDimensions
+  );
+
+  stackAreaChart2 = new StackedArea(
+    "#chart-area2",
+    agentData,
+    keys1,
+    smallDimensions
+  );
+
   //Choose graphs to visualize:
   $("#indicatorType").change(function() {
-    //Remove any old graphs; but this might not be in the right spot (outs):
+    //Remove any old graphs
     d3.selectAll("#chart-area1 > *").remove();
     d3.selectAll("#chart-area2 > *").remove();
     d3.selectAll("#chart-area3 > *").remove();
@@ -152,12 +190,9 @@ Promise.all(promises).then(function(allData) {
     d3.selectAll("#chart-area7 > *").remove();
     d3.selectAll("#chart-area8 > *").remove();
 
-    //outs - rando graphs are being created and there is no default upon page load
     let graphType = $(this).val();
-    console.log(graphType);
-    if (graphType === "gender") {
-      console.log("graphType is true");
 
+    if (graphType === "gender") {
       stackAreaChart3 = new StackedArea(
         "#chart-area3",
         onlyAzadKashmir,
@@ -194,8 +229,15 @@ Promise.all(promises).then(function(allData) {
         keys2,
         smallDimensions
       );
-    } else {
-      console.log("graphType is false");
+    } else if (graphType === "MFmapProvince" || "MFmapDistrict") {
+      mapOfPak = new MapChart(
+        "#chart-area3",
+        districts,
+        provinces,
+        pkDistMF,
+        largeDimensions
+      );
+    } else if (graphType === "AccAndAgent") {
       stackAreaChart1 = new StackedArea(
         "#chart-area1",
         agentData,
@@ -216,8 +258,6 @@ Promise.all(promises).then(function(allData) {
 //outs - create unit tests that can be rerun!
 
 function updateCharts() {
-  console.log($("#indicatorType").val());
-
   if ($("#indicatorType").val() === "gender") {
     stackAreaChart3.wrangleData(sliderBegDate, sliderEndDate);
     stackAreaChart4.wrangleData(sliderBegDate, sliderEndDate);
@@ -225,7 +265,9 @@ function updateCharts() {
     stackAreaChart6.wrangleData(sliderBegDate, sliderEndDate);
     stackAreaChart7.wrangleData(sliderBegDate, sliderEndDate);
     stackAreaChart8.wrangleData(sliderBegDate, sliderEndDate);
-  } else {
+  } else if ($("#indicatorType").val() === "MFmapProvince" || "MFmapDistrict") {
+    mapOfPak.wrangleData(sliderBegDate, sliderEndDate);
+  } else if ($("#indicatorType").val() === "AccAndAgent") {
     stackAreaChart1.wrangleData(sliderBegDate, sliderEndDate);
     stackAreaChart2.wrangleData(sliderBegDate, sliderEndDate);
   }
@@ -233,7 +275,7 @@ function updateCharts() {
 
 //"Go to top" button:
 mybutton = document.getElementById("myBtn");
-// When the user scrolls down 20px from the top of the document, show the button
+
 window.onscroll = function() {
   scrollFunction();
 };
@@ -247,7 +289,7 @@ function scrollFunction() {
     mybutton.style.display = "none";
   }
 }
-// When the user clicks on the button, scroll to the top of the document
+
 function topFunction() {
   document.documentElement.scrollTop = 0;
 }
@@ -284,4 +326,9 @@ let standAloneLegend = d3
     .attr("text-anchor", "end")
     .style("text-transform", "capitalize")
     .text(eachKey);
+});
+
+//Save viz button:
+d3.select("#saveButton").on("click", function() {
+  stackAreaChart1.saveViz();
 });
