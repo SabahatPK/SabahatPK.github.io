@@ -187,12 +187,12 @@ StackedArea.prototype.updateVis = function() {
     .style("width", "0%")
     .transition()
     .ease(d3.easeLinear)
-    .duration(1000)
+    .duration(500)
     .style("width", "100%");
 
   vis.blob
     .style("fill-opacity", 0)
-    .transition(d3.transition().duration(1000))
+    .transition(d3.transition().duration(500))
     .style("fill-opacity", 1);
 };
 

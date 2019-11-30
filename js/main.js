@@ -229,14 +229,6 @@ Promise.all(promises).then(function(allData) {
         keys2,
         smallDimensions
       );
-    } else if (graphType === "MFmapProvince" || "MFmapDistrict") {
-      mapOfPak = new MapChart(
-        "#chart-area3",
-        districts,
-        provinces,
-        pkDistMF,
-        largeDimensions
-      );
     } else if (graphType === "AccAndAgent") {
       stackAreaChart1 = new StackedArea(
         "#chart-area1",
@@ -250,6 +242,14 @@ Promise.all(promises).then(function(allData) {
         agentData,
         keys1,
         smallDimensions
+      );
+    } else if (graphType === "MFmapProvince" || "MFmapDistrict") {
+      mapOfPak = new MapChart(
+        "#chart-area3",
+        districts,
+        provinces,
+        pkDistMF,
+        largeDimensions
       );
     }
   });

@@ -11,6 +11,7 @@ MapChart = function(
   this.MFData = _MFData;
   this.dimensions = _dimensionSVG;
   this.borrByDistrict = {};
+  this.borrByProvince = {};
   this.initVis();
 };
 
@@ -63,6 +64,13 @@ MapChart.prototype.initVis = function() {
   vis.MFData.forEach(d => {
     vis.borrByDistrict[d["District"]] = +d["Active Borrowers"];
   });
+
+  vis.MFData.forEach(d => {
+    d["District"] === "Total"
+      ? (vis.borrByProvince[d["Province"]] = +d["Active Borrowers"])
+      : null;
+  });
+
   //outs - Need min and max of ALL the rows of districts; but the domain is
   //SO wide that the resulting diff in colors is barely noticeable, if at all.
   vis.allDistBorr = [];
@@ -72,7 +80,7 @@ MapChart.prototype.initVis = function() {
   vis.extentBorrowerPermanent = d3.extent(vis.allDistBorr);
   vis.extentBorrower = d3.extent(Object.values(vis.borrByDistrict));
 
-  // console.log(vis.extentBorrower);
+  vis.extentBorrowerProvince = d3.extent(Object.values(vis.borrByProvince));
 
   //outs - there aren't enough distinctions b/w the provinces
   vis.color = d3
@@ -89,13 +97,16 @@ MapChart.prototype.initVis = function() {
       .enter()
       .append("path")
       .attr("d", vis.myPathGenerator)
-      .style("fill", "none")
+      .style("fill", d =>
+        vis.borrByProvince[d.properties.NAME_1]
+          ? vis.color(vis.borrByProvince[d.properties.NAME_1])
+          : vis.color(0)
+      )
       //outs - double check if this is working properly, i.e. triggering
       .on("mouseover", d => {
         console.log(d);
       })
-      .on("mouseout", d => console.log("done"))
-      .style("stroke", "grey");
+      .on("mouseout", d => console.log("done"));
   } else {
     vis.svg
       .append("g")
