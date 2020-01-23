@@ -142,8 +142,8 @@ MapChart.prototype.wrangleData = function(begDate, endDate) {
   //start here
   //Select year to display:
   vis.filteredData = vis.MFData.filter(d => {
-    // console.log(d["Date"]);
-    // console.log(endDate.getTime());
+    console.log(d["Date"]);
+    console.log(endDate.getTime());
     d["Date"].getTime() <= endDate.getTime();
   });
 
