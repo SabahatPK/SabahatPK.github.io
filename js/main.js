@@ -24,7 +24,7 @@ $("#slider").slider({
   range: true,
   min: new Date("1/1/2012").getTime(),
   max: new Date("12/31/2018").getTime(),
-  step: new Date("4/1/2010").getTime() - new Date("1/1/2010").getTime(),
+  step: 345600000,
   values: [new Date("1/1/2012").getTime(), new Date("12/31/2018").getTime()],
   slide: function(event, ui) {
     sliderBegDate = new Date(ui.values[0]);
