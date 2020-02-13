@@ -1,5 +1,7 @@
 //start here : practice map-making!! Watch Kurran videos and others.
 
+//Adding some random text. Delete after deploying to Github.
+
 let promises = [
   d3.csv("data/AgentAccountData.csv"),
   d3.csv("data/GenderByProvince.csv"),
@@ -19,7 +21,8 @@ $("#dateLabel1").text("From " + formatTime(new Date("1/1/2012")));
 $("#dateLabel2").text(" to " + formatTime(new Date("12/31/2018")));
 
 // Add jQuery UI slider
-//START Here; debugging slider; https://stackoverflow.com/questions/41104415/js-dates-and-jquery-ui-slider-being-strange/41105624
+//START Here; debugging slider;
+// https://stackoverflow.com/questions/41104415/js-dates-and-jquery-ui-slider-being-strange/41105624
 $("#slider").slider({
   range: true,
   min: new Date("1/1/2012").getTime(),
@@ -31,6 +34,7 @@ $("#slider").slider({
     sliderEndDate = new Date(ui.values[1]);
     $("#dateLabel1").text("From " + formatTime(new Date(ui.values[0])));
     $("#dateLabel2").text(" to " + formatTime(new Date(ui.values[1])));
+
     updateCharts();
   }
 });

@@ -18,6 +18,8 @@ MapChart = function(
 //OUTS - click on province to isolate that data in area charts
 //OUTS - allow map to size down with containers.
 
+//Adding some random text. Delete after deploying to Github.
+
 MapChart.prototype.initVis = function() {
   let vis = this;
 
@@ -82,11 +84,23 @@ MapChart.prototype.initVis = function() {
 
   vis.extentBorrowerProvince = d3.extent(Object.values(vis.borrByProvince));
 
+  console.log(vis.borrByDistrict);
+  console.log(vis.extentBorrower);
+
   //outs - there aren't enough distinctions b/w the provinces
+  // vis.color = d3
+  //   .scaleLog()
+  //   .domain([0, 413389])
+  //   // .domain([0, 50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000])
+  //   .range(["brown", "steelblue"]);
+
+  //OUTS: Probably shouldn't use the same scale for districts as for province;
+  //end up with huge Punjab blob and almost no color in other provinces.
   vis.color = d3
-    .scaleThreshold()
-    .domain([0, 50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000])
-    .range(d3.schemeBlues[9]);
+    .scaleSequential(d3.interpolateBlues)
+    .domain(vis.extentBorrower);
+
+  console.log(vis.color.domain());
 
   if ($("#indicatorType").val() === "MFmapProvince") {
     vis.svg
@@ -137,21 +151,15 @@ MapChart.prototype.initVis = function() {
 MapChart.prototype.wrangleData = function(begDate, endDate) {
   let vis = this;
 
-  // console.log(endDate);
-
   //start here
   //Select year to display:
   vis.filteredData = vis.MFData.filter(d => {
-    console.log(d["Date"]);
-    console.log(endDate.getTime());
     d["Date"].getTime() <= endDate.getTime();
   });
 
   // vis.filteredData = vis.pakDistrictData.filter(
   //   each => each.Date >= begDate && each.Date <= endDate
   // );
-
-  console.log(vis.filteredData);
 
   // vis.updateVis();
 };
@@ -162,6 +170,6 @@ MapChart.prototype.updateVis = function() {
 
 //outs - create dataset of microcredit borrowers, GLP for each district from PMN's MicroWatch reports
 
-//   //HandyTip - refer to these for creating chloropeth map:
+//   //HandyTip - refer to these for creating choropleth map:
 //   //https://observablehq.com/d/9a13ec59b29db4fa
 //   //http://duspviz.mit.edu/d3-workshop/mapping-data-with-d3/
