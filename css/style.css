@@ -1,0 +1,30 @@
+body {
+  background-color: white;
+}
+
+h1 {
+  color: tomato;
+  opacity: 0.9;
+}
+
+div {
+  margin-top: -10;
+}
+
+.card {
+  margin: 20;
+}
+
+.card-text {
+  font-size: x-small;
+}
+
+.about {
+  background-color: #f2f2f2;
+}
+.portfolio {
+  /* TBA */
+}
+.contact {
+  background-color: #f2f2f2;
+}
