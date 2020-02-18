@@ -35,10 +35,10 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-    <link
-      href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
-      rel="stylesheet"
-    />
+    <script
+      src="https://kit.fontawesome.com/09503a8969.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
@@ -49,116 +49,166 @@
       </p>
     <![endif]-->
 
-    <nav class="navbar sticky-top navbar-light bg-light">
-      <a class="navbar-brand" href="#">Sticky top; add in nav links</a>
-    </nav>
-    <div class="container title"></div>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Sabahat Iqbal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">
+                <i class="far fa-smile-beam"></i>
+                About Me
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
 
+            <li class="nav-item active">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-folder-open"></i>
+                  Portfolio
+                  <span class="sr-only">(current)</span>
+                  </a>
+              </li>
+
+              <li class="nav-item active">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-mail-bulk"></i>
+                  Contact Me
+                  <span class="sr-only">(current)</span>
+                  </a>
+              </li>
+          </ul>
+        </div>
+    </nav>
+    
+    <div class="main">    
+  
     <!-- About Me section: -->
     <div class="container about">
-      <h1>About</h1>
-      <h6>Add basics about me.</h6>
+      <h3>A little bit about me:</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fringilla euismod tellus et vulputate. Vivamus sed euismod elit. Praesent aliquam ipsum urna, a hendrerit dolor euismod in. Sed nec gravida turpis. Vivamus suscipit, neque ut egestas fringilla, mi purus imperdiet mauris, at aliquet libero nunc at massa. </p>
     </div>
 
     <!-- Portfolio Section -->
+    <!-- Portfolio Gallery Grid -->
+<div class="row">
+    <div class="column">
+      <div class="content card">
+        <img src="/img/DDP.jpg" alt="Mountains" style="width:100%">
+        <h3>Data Driven Pakistan</h3>
+        <p class="card-text">Data collected by governments often goes unused; this site aims
+          to make that data more accessible with engaging, interactive
+          data visualizations.</p>
+          <a
+                target="_blank"
+                href="https://sabahatpk.github.io/DataDrivenPakistan/"
+                class="btn btn-primary"
+                >Visit Project Site</a
+              >
+      </div>
+    </div>
+    <div class="column">
+      <div class="content card">
+        <img src="/img/DDP.jpg" alt="Mountains" style="width:100%">
+        <h3>Data Driven Pakistan</h3>
+        <p class="card-text">Data collected by governments often goes unused; this site aims
+          to make that data more accessible with engaging, interactive
+          data visualizations.</p>
+          <a
+                target="_blank"
+                href="https://sabahatpk.github.io/DataDrivenPakistan/"
+                class="btn btn-primary"
+                >Visit Project Site</a
+              >
+      </div>
+    </div>
+  <!-- END GRID -->
+  </div>
 
-    <div class="container portfolio">
+    <!-- Old code: -->
+    <!-- <div class="container portfolio">
       <div class="row">
         <div class="col-sm-6">
-          <h1>Portfolio</h1>
-          <h6>Add Projects and tech stack.</h6>
+          <h3>What I am working on:</h3>
           <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="/img/DDP.jpg" alt="Card image cap" />
             <div class="card-body">
               <p class="card-text">
-                Data collected by governments often goes unused; this site aims
-                to make that data more accessible with engaging, interactive
-                data visualizations.
+                
               </p>
-              <a
-                target="_blank"
-                href="https://sabahatpk.github.io/DataDrivenPakistan/"
-                class="btn btn-primary"
-                >Data Driven Pakistan</a
-              >
+              
             </div>
           </div>
         </div>
       </div>
-      <!-- Add 2 div ends here -->
-    </div>
+    </div> -->
 
     <!-- Contact Me section -->
     <div class="container contact">
-      <h1>Contact</h1>
-      <h6>Add Contact Me.</h6>
       <div class="row">
-        <div class="col-md-3">
-          <div class="contact-info">
-            <img
-              src="https://image.ibb.co/kUASdV/contact-image.png"
-              alt="image"
-            />
-            <h2>Contact Us</h2>
-            <h4>We would love to hear from you !</h4>
-          </div>
-        </div>
+        <!-- Form: -->
         <div class="col-md-9">
-          <div class="contact-form">
-            <div class="form-group">
+          <h3>Contact</h3>
+          <form action="https://formspree.io/myywvbrz" method="POST">
+
+            <div class="form-group form-text">
               <label class="control-label col-sm-2" for="fname"
-                >First Name:</label
+                >Name:</label
               >
-              <div class="col-sm-10">
+              <div class="col-sm-8">
                 <input
                   type="text"
                   class="form-control"
                   id="fname"
-                  placeholder="Enter First Name"
+                  placeholder="First and Last Name"
                   name="fname"
+                  required
                 />
               </div>
             </div>
-            <div class="form-group">
-              <label class="control-label col-sm-2" for="lname"
-                >Last Name:</label
-              >
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="lname"
-                  placeholder="Enter Last Name"
-                  name="lname"
-                />
-              </div>
-            </div>
-            <div class="form-group">
+
+            <div class="form-group form-text">
               <label class="control-label col-sm-2" for="email">Email:</label>
-              <div class="col-sm-10">
+              <div class="col-sm-8">
                 <input
                   type="email"
                   class="form-control"
                   id="email"
-                  placeholder="Enter email"
+                  placeholder="example@example.com"
                   name="email"
+                  required
                 />
               </div>
             </div>
-            <div class="form-group">
+
+            <div class="form-group form-text">
               <label class="control-label col-sm-2" for="comment"
-                >Comment:</label
+                >Comment/Feedback:</label
               >
-              <div class="col-sm-10">
-                <textarea class="form-control" rows="5" id="comment"></textarea>
+              <div class="col-sm-8">
+                <textarea
+                  name="message"
+                  class="form-control"
+                  rows="5"
+                  id="comment"
+                  required
+                ></textarea>
               </div>
             </div>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">Submit</button>
+
+            <div class="contact-form">
+                <div class="form-group form-text">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn">Submit</button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+
+         
+
         </div>
       </div>
     </div>
@@ -168,22 +218,18 @@
       <hr />
       <div class="text-center center-block">
         <br />
-        <a href="https://www.facebook.com/bootsnipp"
-          ><i class="fa fa-facebook-square fa-3x social"></i
+
+        <a target="_blank" href="https://www.linkedin.com/in/sabahatiqbal"
+          ><i class="fab fa-linkedin fa-2x"></i
         ></a>
-        <a href="https://twitter.com/bootsnipp"
-          ><i class="fa fa-twitter-square fa-3x social"></i
-        ></a>
-        <a href="https://plus.google.com/+Bootsnipp-page"
-          ><i class="fa fa-google-plus-square fa-3x social"></i
-        ></a>
-        <a href="mailto:bootsnipp@gmail.com"
-          ><i class="fa fa-envelope-square fa-3x social"></i
+        <a target="_blank" href="https://twitter.com/sabahatiqbal"
+          ><i class="fab fa-twitter-square fa-2x"></i
         ></a>
       </div>
       <hr />
     </div>
+</div>
 
-    <script src="" async defer></script>
+    <script src="/js/main.js" async defer></script>
   </body>
 </html>
