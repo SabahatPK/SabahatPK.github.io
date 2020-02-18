@@ -1,22 +1,23 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-
-<!-- OUTSTANDING tasks:
-        Add attribution: Photo by William Iven on Unsplash -->
 <html class="no-js">
   <!--<![endif]-->
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Sabahat Iqbal Portfolio Page</title>
+    <title></title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand:400,600&display=swap"
+      rel="stylesheet"
+    />
     <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
     <script
@@ -39,6 +40,12 @@
       src="https://kit.fontawesome.com/09503a8969.js"
       crossorigin="anonymous"
     ></script>
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
@@ -49,6 +56,12 @@
       </p>
     <![endif]-->
 
+    <!-- outs:
+    1. Add "Go to Top" button
+    2. 
+    -->
+
+    <!-- NAVBAR SECTION -->    
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Sabahat Iqbal</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,7 +71,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="#about">
                 <i class="far fa-smile-beam"></i>
                 About Me
                 <span class="sr-only">(current)</span>
@@ -66,7 +79,7 @@
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="#projects">
                     <i class="fas fa-folder-open"></i>
                   Portfolio
                   <span class="sr-only">(current)</span>
@@ -74,7 +87,7 @@
               </li>
 
               <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="#contact">
                     <i class="fas fa-mail-bulk"></i>
                   Contact Me
                   <span class="sr-only">(current)</span>
@@ -83,153 +96,170 @@
           </ul>
         </div>
     </nav>
+    <!-- END of NAVBAR SECTION -->
+
+    <!-- FLOATING BUTTON -->
+    <div class="col-md-8"><button onclick="topFunction()" id="myBtn" title="Go to top">
+        Back To Top
+      </button></div>
+      <!-- END OF FLOATING BUTTON -->
+
+    <!-- WECLOME SECTION -->
+    <div
+      id="welcome-section"
+      class="container align-center justify-center center-text"
+    >
+      <div>
+        <h1>International Development</h1>
+        <h1>+</h1>
+        <h1>Data Visualization</h1>
+      </div>
+    </div>
+    <!-- END of WECLOME SECTION -->
+
+    <!-- ABOUT SECTION -->
+    <div id="about" class="main">
+      
+      <div class="about-box">
+        <div class="about-text">
+          <p>
+            My name is Sabahat Iqbal. I often work with government-owned data from emerging markets, such as Pakistan. I decided to
+            start compiling some of the data and present it with interactive data
+            visualizations.
+            <strong
+              >Making government data more accessible allows journalists,
+              researchers, and voters to engage more deeply with it.</strong
+            >
+          </p>
+          <p>
+            Beyond the usual front-end stack (HTML, CSS, JS), I use
+            <a target="_blank" href="https://d3js.org/">d3.js</a> a lot and
+            <a target="_blank" href="https://reactjs.org/">ReactJS</a> a little.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- END of ABOUT SECTION -->
+
+    <!-- PROJECTS SECTION -->
+    <div id="projects" class="main">
+      <h2 class="center-text">This is a work in progress...</h2>
+      
+
+      <div class="project-grid">
+        <!-- Start of grid container for image tiles -->
+
+        <div class="project-tile">
+          <a
+            target="_blank"
+            href="https://sabahatpk.github.io/DataDrivenPakistan/"
+          >
+            <img
+              class="tile-img"
+              src="/img/DDP.jpg"
+              alt="Tribute Page project screen grab"
+            />
+            <p class="center-text">Data Driven Pakistan</p>
+          </a>
+        </div>
+
+      </div>
+      <!-- End of grid container for image tiles -->
+    </div>
+    <!-- END of PROJECTS SECTION -->
     
-    <div class="main">    
-  
-    <!-- About Me section: -->
-    <div class="container about">
-      <h3>A little bit about me:</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fringilla euismod tellus et vulputate. Vivamus sed euismod elit. Praesent aliquam ipsum urna, a hendrerit dolor euismod in. Sed nec gravida turpis. Vivamus suscipit, neque ut egestas fringilla, mi purus imperdiet mauris, at aliquet libero nunc at massa. </p>
-    </div>
 
-    <!-- Portfolio Section -->
-    <!-- Portfolio Gallery Grid -->
-<div class="row">
-    <div class="column">
-      <div class="content card">
-        <img src="/img/DDP.jpg" alt="Mountains" style="width:100%">
-        <h3>Data Driven Pakistan</h3>
-        <p class="card-text">Data collected by governments often goes unused; this site aims
-          to make that data more accessible with engaging, interactive
-          data visualizations.</p>
-          <a
-                target="_blank"
-                href="https://sabahatpk.github.io/DataDrivenPakistan/"
-                class="btn btn-primary"
-                >Visit Project Site</a
-              >
-      </div>
-    </div>
-    <div class="column">
-      <div class="content card">
-        <img src="/img/DDP.jpg" alt="Mountains" style="width:100%">
-        <h3>Data Driven Pakistan</h3>
-        <p class="card-text">Data collected by governments often goes unused; this site aims
-          to make that data more accessible with engaging, interactive
-          data visualizations.</p>
-          <a
-                target="_blank"
-                href="https://sabahatpk.github.io/DataDrivenPakistan/"
-                class="btn btn-primary"
-                >Visit Project Site</a
-              >
-      </div>
-    </div>
-  <!-- END GRID -->
-  </div>
+    <!-- CONTACTS SECTION -->
+    <div id="contact" class="main">  
 
-    <!-- Old code: -->
-    <!-- <div class="container portfolio">
-      <div class="row">
-        <div class="col-sm-6">
-          <h3>What I am working on:</h3>
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="/img/DDP.jpg" alt="Card image cap" />
-            <div class="card-body">
-              <p class="card-text">
-                
-              </p>
-              
+       <!-- Form: -->
+       <div class="col-md-9">
+        <form action="https://formspree.io/myywvbrz" method="POST">
+
+          <div class="form-group form-text">
+            <label class="control-label col-sm-2" for="fname"
+              >Name:</label
+            >
+            <div class="col-sm-8">
+              <input
+                type="text"
+                class="form-control"
+                id="fname"
+                placeholder="First and Last Name"
+                name="fname"
+                required
+              />
             </div>
           </div>
-        </div>
-      </div>
-    </div> -->
 
-    <!-- Contact Me section -->
-    <div class="container contact">
-      <div class="row">
-        <!-- Form: -->
-        <div class="col-md-9">
-          <h3>Contact</h3>
-          <form action="https://formspree.io/myywvbrz" method="POST">
-
-            <div class="form-group form-text">
-              <label class="control-label col-sm-2" for="fname"
-                >Name:</label
-              >
-              <div class="col-sm-8">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="fname"
-                  placeholder="First and Last Name"
-                  name="fname"
-                  required
-                />
-              </div>
+          <div class="form-group form-text">
+            <label class="control-label col-sm-2" for="email">Email:</label>
+            <div class="col-sm-8">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="example@example.com"
+                name="email"
+                required
+              />
             </div>
+          </div>
 
-            <div class="form-group form-text">
-              <label class="control-label col-sm-2" for="email">Email:</label>
-              <div class="col-sm-8">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="example@example.com"
-                  name="email"
-                  required
-                />
-              </div>
+          <div class="form-group form-text">
+            <label class="control-label col-sm-2" for="comment"
+              >Comment/Feedback:</label
+            >
+            <div class="col-sm-8">
+              <textarea
+                name="message"
+                class="form-control"
+                rows="5"
+                id="comment"
+                required
+              ></textarea>
             </div>
+          </div>
 
-            <div class="form-group form-text">
-              <label class="control-label col-sm-2" for="comment"
-                >Comment/Feedback:</label
-              >
-              <div class="col-sm-8">
-                <textarea
-                  name="message"
-                  class="form-control"
-                  rows="5"
-                  id="comment"
-                  required
-                ></textarea>
-              </div>
-            </div>
-
-            <div class="contact-form">
-                <div class="form-group form-text">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn">Submit</button>
-                  </div>
+          <div class="contact-form">
+              <div class="form-group form-text">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-secondary">Submit</button>
                 </div>
               </div>
+            </div>
 
-         
+       
 
-        </div>
       </div>
+
     </div>
 
-    <!-- Social Media Footer -->
-    <div class="container">
-      <hr />
-      <div class="text-center center-block">
-        <br />
+    <!-- END of CONTACTS SECTION -->
 
-        <a target="_blank" href="https://www.linkedin.com/in/sabahatiqbal"
-          ><i class="fab fa-linkedin fa-2x"></i
-        ></a>
-        <a target="_blank" href="https://twitter.com/sabahatiqbal"
-          ><i class="fab fa-twitter-square fa-2x"></i
-        ></a>
-      </div>
-      <hr />
-    </div>
-</div>
+    <footer class="center-text">
+        <div class="container fcontacts">
+            <a
+              class="ficons"
+              href="https://github.com/sabahatPK"
+              target="_blank"
+              ><i class="fab fa-github-square fa-2x"></i></a>
+            <a
+              class="ficons"
+              href="https://twitter.com/sabahatiqbal"
+              target="_blank"
+              ><i class="fab fa-twitter-square fa-2x"></i></a>
+              <a
+              class="ficons"
+              href="https://www.linkedin.com/in/sabahatiqbal"
+              target="_blank"
+              ><i class="fab fa-linkedin fa-2x"></i></a>
+          </div>
+    </footer>
 
-    <script src="/js/main.js" async defer></script>
+   
+    <script src="js/main.js"></script>
+
+    <script src="" async defer></script>
   </body>
 </html>

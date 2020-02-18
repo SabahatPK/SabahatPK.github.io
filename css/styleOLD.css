@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+body {
+  /* background-color: #25274d; */
+  /* padding: 20px; */
+}
+
+.container {
+  padding: 20px;
+}
+
+h1,
+h3 {
+  color: tomato;
+  opacity: 0.9;
+}
+
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.btn {
+  background-color: tomato;
+  border: tomato;
+  font-weight: 600;
+}
+
+.form-group,
+.control-label,
+.form-control {
+  height: 2em;
+}
+
+input::placeholder {
+  color: red;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: pink;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: pink;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: pink;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: pink;
+}
+
+.form-text {
+  font-size: small;
+}
+
+.contact-info {
+  margin-top: 10%;
+}
+.contact-info img {
+  margin-bottom: 15%;
+}
+.contact-info h3 {
+  margin-bottom: 10%;
+  color: #25274d;
+  opacity: 0.5;
+}
+.col-md-9 {
+  background: #fff;
+  padding: 3%;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.contact-form label {
+  font-weight: 600;
+}
+
+.contact-form button:focus {
+  box-shadow: none;
+}
+
+.card {
+  background-color: tomato;
+}
+
+.card h3 {
+  color: #25274d;
+  opacity: 0.5;
+}
+
+.card-text {
+  font-size: x-small;
+  color: #25274d;
+  opacity: 0.8;
+}
+
+.fab {
+  color: #25274d !important;
+  opacity: 0.8 !important;
+}
