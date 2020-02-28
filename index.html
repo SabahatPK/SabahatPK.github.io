@@ -15,6 +15,7 @@
       href="https://fonts.googleapis.com/css?family=Quicksand:400,600&display=swap"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -63,13 +64,13 @@
 
     <!-- NAVBAR SECTION -->    
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Sabahat Iqbal</a>
+        <a class="navbar-brand" href="#about">Sabahat Iqbal</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#about">
                 <i class="far fa-smile-beam"></i>
@@ -99,7 +100,7 @@
     <!-- END of NAVBAR SECTION -->
 
     <!-- FLOATING BUTTON -->
-    <div class="col-md-8"><button onclick="topFunction()" id="myBtn" title="Go to top">
+    <div class="col-md-8 go-top"><button onclick="topFunction()" id="myBtn" title="Go to top">
         Back To Top
       </button></div>
       <!-- END OF FLOATING BUTTON -->
@@ -143,7 +144,7 @@
 
     <!-- PROJECTS SECTION -->
     <div id="projects" class="main">
-      <h2 class="center-text">This is a work in progress...</h2>
+      <h2 class="center-text">Labors of Love (and other projects)</h2>
       
 
       <div class="project-grid">
@@ -156,10 +157,24 @@
           >
             <img
               class="tile-img"
-              src="/img/DDP.jpg"
-              alt="Tribute Page project screen grab"
+              src="/img/DDP_v1.jpg"
+              alt="Stock photo showing charts"
             />
             <p class="center-text">Data Driven Pakistan</p>
+          </a>
+        </div>
+
+        <div class="project-tile">
+          <a
+            target="_blank"
+            href="https://sabahatpk.github.io/gapminder-clone/"
+          >
+            <img
+              class="tile-img"
+              src="/img/GapMinderClone.jpg"
+              alt="Stock photo showing charts"
+            />
+            <p class="center-text">Gapminder Clone</p>
           </a>
         </div>
 
@@ -171,11 +186,11 @@
 
     <!-- CONTACTS SECTION -->
     <div id="contact" class="main">  
-
+      <h2 class="center-text">Got questions?</h2>
        <!-- Form: -->
        <div class="col-md-9">
+      
         <form action="https://formspree.io/myywvbrz" method="POST">
-
           <div class="form-group form-text">
             <label class="control-label col-sm-2" for="fname"
               >Name:</label
@@ -208,7 +223,7 @@
 
           <div class="form-group form-text">
             <label class="control-label col-sm-2" for="comment"
-              >Comment/Feedback:</label
+              >Question/Comment/Feedback:</label
             >
             <div class="col-sm-8">
               <textarea

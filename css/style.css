@@ -5,13 +5,14 @@
 }
 
 html {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Spartan", sans-serif;
   line-height: 1.42857143;
   font-size: 1.125rem;
 }
 
 body {
   color: tomato;
+  opacity: 0.85;
 }
 
 #myBtn {
@@ -58,6 +59,10 @@ body {
   box-shadow: 5px 5px 15px grey;
 }
 
+.go-to {
+  border: grey;
+}
+
 h2 {
   font-size: 2rem;
   margin-bottom: 1.6rem;
@@ -65,23 +70,34 @@ h2 {
   text-shadow: 1px 1px 0px black;
 }
 
+#contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1.6rem;
+  color: tomato;
+  text-shadow: 1px 1px 0px black;
+}
+
 a {
-  color: #3399ff;
-  font-weight: 600;
+  color: #47719b;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: #b45922;
+  color: #555;
+}
+
+.nav-item a:hover {
+  background-color: tomato;
 }
 /* END of GENERAL STYLING CLASSES */
 
 /* START of NAVBAR STYLING */
 
 .navbar {
-  display: flex; /* displays flex-items (children) inline */
-  justify-content: space-between; /* children are evenly distributed, first child is on the left and last child on the right side */
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
 }
 
 ul {
@@ -147,12 +163,11 @@ li {
 .project-tile p {
   font-size: 1.3rem;
   padding-top: 0.6rem;
-  font-weight: 600;
-  /* color: white; */
 }
 
 .tile-img {
   width: 100%;
+  height: auto;
   box-shadow: 3px 3px 8px grey;
   object-fit: cover;
 }
@@ -166,31 +181,9 @@ li {
 
 .ficons {
   margin: 0 1.4rem;
+  color: tomato;
 }
 
-.fa-envelope {
-  color: #ffffcc;
-}
-
-.fa-free-code-camp {
-  color: #006400;
-}
-
-.fa-github-square {
-  color: #24292e;
-}
-
-.fa-twitter-square {
-  color: #1da1f2;
-}
-
-.fa-youtube-square {
-  color: #ff0000;
-}
-
-.fa-instagram {
-  color: #7e22c3;
-}
 /* END of CONTACT STYLING */
 
 footer {
