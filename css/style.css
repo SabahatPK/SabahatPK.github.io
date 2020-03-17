@@ -167,24 +167,24 @@ li {
 
 .tile-img {
   width: 100%;
-  height: auto;
+  height: 250px;
   box-shadow: 3px 3px 8px grey;
-  object-fit: cover;
+  object-fit: fill;
 }
-/* END of PROJECTS STYLING */
 
-/* START of CONTACT STYLING */
 .fcontacts {
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.selfTaughtCurriculum {
+  font-size: 15px;
 }
 
 .ficons {
   margin: 0 1.4rem;
   color: tomato;
 }
-
-/* END of CONTACT STYLING */
 
 footer {
   color: white;
