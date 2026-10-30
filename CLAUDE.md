@@ -10,7 +10,7 @@ It is a single static page with no build step, package manager, linter or tests.
 
 ## Previewing
 
-Several asset paths are root-absolute (`/css/style.css`, `/img/...`). They resolve on GitHub Pages, but they break when `index.html` is opened directly from disk (`file://`), and the page then loads with no custom CSS. Preview through a local server from the repo root, e.g. `python -m http.server 8000`, then open http://localhost:8000.
+All asset paths are relative (`css/style.css`, `img/...`), so `index.html` also works when opened straight from disk. Keep new paths relative, without a leading `/`. A local server from the repo root gives the most accurate preview, e.g. `python -m http.server 8000`, then open http://localhost:8000.
 
 ## Structure
 
@@ -19,8 +19,6 @@ Several asset paths are root-absolute (`/css/style.css`, `/img/...`). They resol
 - `js/main.js` (jQuery) does smooth scrolling for `#` links, with a 75px offset for the sticky navbar, and drives the "Back To Top" button (`#myBtn`, called through an inline `onclick="topFunction()"`).
 - `img/` holds project thumbnails, referenced by `.project-tile` images. Some files in it are not used by the page (certificates, `DDP.jpg`, etc.).
 - `data/` (CSV/GeoJSON for Pakistan and microfinance) is **not referenced by the site**. It is leftover from earlier data-viz experiments.
-- `indexOLD.html` and `css/styleOLD.css` are old versions that nothing links to.
-
 ## External dependencies (all loaded from CDNs in `<head>`)
 
 - jQuery 3.4.1, Popper 1.16.0, Bootstrap 4.4.1 (CSS + JS), with SRI hashes
