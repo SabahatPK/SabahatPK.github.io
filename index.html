@@ -1,444 +1,267 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-  <!--<![endif]-->
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Quicksand:400,600&display=swap"
-      rel="stylesheet"
-    />
-    <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://kit.fontawesome.com/09503a8969.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      rel="stylesheet"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="#">upgrade your browser</a> to improve your experience.
-      </p>
-    <![endif]-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!-- Content Security Policy: the browser only runs this site's own scripts, only loads fonts from
+       Google Fonts, and the contact form can only send to Formspree. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; form-action https://formspree.io; base-uri 'self'; object-src 'none'" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sabahat Iqbal: Digital access, inclusion, and transformation</title>
+  <meta name="description" content="Sabahat Iqbal leads product, program, and policy work on digital access, inclusion, and transformation across Asia, Africa, and Latin America, grounded in a career leading Fortune 500 enterprise tech projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/main.js"></script>
+  <script src="js/vendor/d3.min.js" defer></script>
+  <script src="js/vendor/topojson-client.min.js" defer></script>
+  <script src="js/impact-map.js" defer></script>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="#top"><span class="seal" aria-hidden="true">SI</span><span class="brand-name">Sabahat Iqbal</span></a>
+      <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul id="nav-links">
+        <li><a href="#results">Impact</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+        <li><a href="#writing">Writing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- outs:
-    1. Add "Go to Top" button
-    2. 
-    -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <h1>I built my technical chops leading <em>Fortune 500 enterprise tech</em> projects.<br />Now, I bring those skills to <em>close digital divides</em> across Asia, Africa, and Latin America.</h1>
+      <p class="statement">My product, program, and policy leadership<br />— grounded in deep technical understanding —<br />builds safe and equitable digital futures.</p>
+    </div>
+  </header>
 
-    <!-- Wishlist:
-    1. Update to this format: https://startbootstrap.com/themes/resume/
-   -->
+  <div class="wave" aria-hidden="true">
+    <svg viewBox="0 0 240 36" preserveAspectRatio="none">
+      <defs>
+        <pattern id="seigaiha" width="40" height="36" patternUnits="userSpaceOnUse">
+          <g fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M0 36 a20 20 0 0 1 40 0" />
+            <path d="M6 36 a14 14 0 0 1 28 0" />
+            <path d="M12 36 a8 8 0 0 1 16 0" />
+            <path d="M-20 18 a20 20 0 0 1 40 0" />
+            <path d="M20 18 a20 20 0 0 1 40 0" />
+          </g>
+        </pattern>
+      </defs>
+      <rect width="240" height="36" fill="url(#seigaiha)" />
+    </svg>
+  </div>
 
-    <!-- NAVBAR SECTION -->    
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#about">Sabahat Iqbal</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+  <section id="results">
+    <div class="wrap">
+      <h2>Impact</h2>
+      <p class="hint js-only">Hover over or tap a highlighted country to see impact.</p>
+      <div class="map-wrap js-only" id="map-wrap">
+        <div class="map-area">
+          <div id="impact-map"></div>
+          <div class="global-box" id="global-box">
+            <span class="global-label">Global portfolios</span>
+            <button type="button" class="global-btn c-connect" data-n="1">$6.5M · USAID</button>
+            <button type="button" class="global-btn c-dpi" data-n="6">$8M · IFC</button>
+          </div>
+        </div>
+        <div class="callout" id="callout" hidden>
+          <button type="button" class="callout-close" id="callout-close" aria-label="Close">×</button>
+          <div id="callout-body"></div>
+        </div>
+        <div class="legend">
+          <span class="c-connect">Connectivity</span>
+          <span class="c-dpi">Digital Public Infrastructure</span>
+          <span class="c-climate">Climate Tech</span>
+          <span class="c-enterprise">Enterprise Technology</span>
+        </div>
+      </div>
+      <!-- Source of the callout text. Hidden visually once the map loads, but still read by screen readers;
+           shown as a normal list if the map can't load. -->
+      <ol class="impacts" id="impacts">
+        <li class="impact c-connect" data-n="1"><span class="badge">1</span><div><div class="num">$6.5M</div><p>Size of digital connectivity portfolio under management, for expanding broadband access and secure digital infrastructure.</p><p class="where">Connectivity · Global · USAID</p></div></li>
+        <li class="impact c-connect" data-n="2"><span class="badge">2</span><div><div class="num">5,000+</div><p>Engineers trained in emerging broadband technologies - nearly half of them women - under a workforce development initiative.</p><p class="where">Connectivity · Philippines · USAID</p></div></li>
+        <li class="impact c-connect" data-n="3"><span class="badge">3</span><div><div class="num">6,500+</div><p>Rural patients covered by pilot of private 5G and OpenRAN connectivity telehealth solutions.</p><p class="where">Connectivity · Brazil · USAID</p></div></li>
+        <li class="impact c-dpi" data-n="4"><span class="badge">4</span><div><div class="num">25%</div><p>Increase in task success rate of digital ID-enabled public services, after user research and design recommendations.</p><p class="where">Digital Public Infrastructure · Rwanda, Côte d'Ivoire, and South Africa · Tony Blair Institute</p></div></li>
+        <li class="impact c-climate" data-n="5"><span class="badge">5</span><div><p>Built critical decision-making tools, including trade-off matrices and dynamic decision trees, to assist government users in generating tailored climate tech roadmaps and inform Sierra Leone's national climate strategy. Also, redesigned early warning data pipelines to power locally relevant AI/ML ("small AI") for disaster-prone, low-connectivity areas.</p><p class="where">Climate Tech · Sierra Leone · Tony Blair Institute</p></div></li>
+        <li class="impact c-dpi" data-n="6"><span class="badge">6</span><div><div class="num">$8M</div><p>Additional new investments, based on an evaluation of digital inclusion gaps across 25 emerging markets.</p><p class="where">Digital Public Infrastructure · Global · IFC</p></div></li>
+        <li class="impact c-dpi" data-n="7"><span class="badge">7</span><div><div class="num">160%</div><p>Growth in digital payment accounts, through open APIs and inclusive, commercially-led partnerships with fintech providers.</p><p class="where">Digital Public Infrastructure · Pakistan · Karandaaz</p></div></li>
+        <li class="impact c-enterprise" data-n="8"><span class="badge">8</span><div><div class="num">$3M+</div><p>Savings delivered as part of automation of 20+ HR business processes for U.S.-based financial services client with 22,000+ employees.</p><p class="where">Enterprise Technology · United States · Aon Hewitt</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="experience" class="alt">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <div class="exp-collapse" id="exp-collapse">
+        <div class="timeline" id="exp-timeline">
+          <div class="role">
+            <div class="years">2025–now</div>
+            <div><h3><a href="https://fenixdigital.io/" target="_blank" rel="noopener noreferrer">Fenix Digital</a></h3><p class="title">Partner and Connectivity &amp; Digital Access Lead</p><p>Co-founded a digital transformation consultancy with former USAID colleagues, and leads its connectivity and digital access practice.</p></div>
+          </div>
+          <div class="role">
+            <div class="years">2023–25</div>
+            <div><h3>U.S. Agency for International Development</h3><p class="title">Digital Connectivity Lead</p><p>Led a $6.5M digital connectivity portfolio advancing international broadband access and secure digital infrastructure technologies globally.</p></div>
+          </div>
+          <div class="role">
+            <div class="years">2021–23</div>
+            <div><h3>Tony Blair Institute for Global Change</h3><p class="title">Tech Policy Lead</p><p>Led research, advisory, and product strategy initiatives focused on foundational digital public infrastructure, digital identity use cases, and connectivity.</p></div>
+          </div>
+          <div class="role">
+            <div class="years">2017–20</div>
+            <div><h3>International Finance Corporation</h3><p class="title">Digital Policy and Portfolio Researcher</p><p>Developed investment and advisory recommendations to encourage private-sector participation in expanding inclusive digital financial services.</p></div>
+          </div>
+          <div class="role">
+            <div class="years">2015–16</div>
+            <div><h3>Karandaaz Pakistan</h3><p class="title">Senior Associate</p><p>Scaled a $16M fintech research and advisory portfolio backed by the Bill &amp; Melinda Gates Foundation and the UK Government.</p></div>
+          </div>
+          <div class="role">
+            <div class="years">2014–15</div>
+            <div><h3>World Bank Group (CGAP)</h3><p class="title">Digital Inclusion Consultant</p><p>Spearheaded the strategic incubation, national policy design, and structural rollout of a standalone digital inclusion vehicle.</p></div>
+          </div>
+          <div class="role">
+            <div class="years">2000–11</div>
+            <div><h3>Aon Hewitt</h3><p class="title">Systems Analyst → Tech Lead</p><p>Led HRIS implementation, process automation, systems integration, QA coordination, and client-facing technology delivery for large commercial clients.</p></div>
+          </div>
+        </div>
+        <button type="button" class="exp-toggle js-only" id="exp-toggle" aria-expanded="false" aria-controls="exp-timeline">
+          <span class="when-closed">Show more ↓</span><span class="when-hover">Keep open</span><span class="when-open">Show less ↑</span>
         </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#about">
-                <i class="far fa-smile-beam"></i>
-                About Me
-                </a>
-            </li>
+      </div>
+    </div>
+  </section>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#projects">
-                    <i class="fas fa-folder-open"></i>
-                  Portfolio
-                  </a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="#contact">
-                    <i class="fas fa-mail-bulk"></i>
-                  Contact Me
-                  </a>
-              </li>
-          </ul>
+  <section id="projects">
+    <div class="wrap">
+      <h2>Learning by doing</h2>
+      <p class="hint">In a fast-moving AI and tech landscape, staying effective demands hands-on experimentation. These self-directed projects reflect how I continuously build, test, and adapt outside of formal client engagements.</p>
+      <div class="projects">
+        <div class="card featured">
+          <div class="body">
+            <div class="kicker">AI evaluation</div>
+            <h3>How do you know an AI system is good enough to trust?</h3>
+            <p class="what">Designing evaluations with synthetic data and adversarial inputs to test whether model outputs hold up. Every public-sector AI rollout needs this.</p>
+          </div>
         </div>
-    </nav>
-    <!-- END of NAVBAR SECTION -->
+        <div class="card">
+          <div class="body">
+            <div class="kicker">AI prototypes</div>
+            <h3>Where does AI save time, and where does it still need a person?</h3>
+            <p class="what">TrAIvel Concierge, a group-travel planner that grounds its suggestions in real data and was tested with automated and human evaluation. And an n8n workflow that turns unstructured emails into structured records, with human review built in.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="thumb-ai" role="img" aria-label="Terminal window showing an AI coding session">
+            <span class="prompt">&gt; redesign my portfolio site,</span>
+            <span class="prompt">&nbsp;&nbsp;security first</span>
+            <span class="out">✓ brand brief · ✓ clean-up · ✓ design</span>
+          </div>
+          <div class="body">
+            <div class="kicker">AI-assisted development</div>
+            <h3>Can an AI coding agent rebuild a website safely?</h3>
+            <p class="what">This site, redesigned with Claude Code: brand brief, clean-up, and design, with security rules set before any code changed.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="thumb-chart">
+            <img src="img/D4Pak_boxplot_v1.jpg" alt="Boxplot from Data Driven Pakistan: share of women in unpaid employment by province" />
+          </div>
+          <div class="body">
+            <div class="kicker">Data for policy <span class="wip">Work in progress</span></div>
+            <h3>What does public data show that headlines miss?</h3>
+            <p class="what">Data Driven Pakistan, a four-part series built on public data, and an analysis of funding under BEAD, the US federal broadband program.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- FLOATING BUTTON -->
-    <div class="col-md-8 go-top"><button onclick="topFunction()" id="myBtn" title="Go to top">
-        Back To Top
-      </button></div>
-      <!-- END OF FLOATING BUTTON -->
+  <section id="credentials" class="alt">
+    <div class="wrap">
+      <h2>Credentials</h2>
+      <h3 class="creds-sub">Education</h3>
+      <ul class="education">
+        <li>MA, International Relations · Johns Hopkins University; School of Advanced International Studies</li>
+        <li>BBA, Management Information Systems · University of Georgia</li>
+      </ul>
+      <h3 class="creds-sub">Certifications</h3>
+      <!-- Badge images are saved locally and link to each public Credly page for verification. -->
+      <div class="badges">
+        <a class="badge-card" href="https://www.credly.com/badges/598d990f-4acf-42e5-80d7-2225a5aac103/public_url" target="_blank" rel="noopener noreferrer">
+          <img src="img/badge-ai-evaluations-bootcamp.png" alt="" width="88" height="88" />
+          <div><h4>AI Evaluations Bootcamp</h4><p>O'Reilly Media · 2026</p><span class="more">Verify on Credly</span></div>
+        </a>
+        <a class="badge-card" href="https://www.credly.com/badges/1b2e0a2c-6a66-4c51-b90f-3d880ea70378/public_url" target="_blank" rel="noopener noreferrer">
+          <img src="img/badge-automate-zapier-n8n.png" alt="" width="88" height="88" />
+          <div><h4>Automate with Zapier &amp; n8n</h4><p>O'Reilly Media (Pearson) · 2026</p><span class="more">Verify on Credly</span></div>
+        </a>
+        <a class="badge-card" href="https://www.credly.com/badges/206b591b-df90-4e7e-86e9-6e77453b5a1c/public_url" target="_blank" rel="noopener noreferrer">
+          <img src="img/badge-ai-for-product-management.png" alt="" width="88" height="88" />
+          <div><h4>AI for Product Management</h4><p>Pendo · Mind the Product · Google Cloud</p><span class="more">Verify on Credly</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <!-- WECLOME SECTION -->
-    <div
-      id="welcome-section"
-      class="container align-center justify-center center-text"
-    >
+  <section id="writing">
+    <div class="wrap">
+      <h2>Writing</h2>
+      <ul class="writing">
+        <li>
+          <div class="year">2024</div>
+          <div><a href="https://journals.openedition.org/ctd/12855" target="_blank" rel="noopener noreferrer">Policy product: Using machine learning to mitigate climate disasters</a><p class="pub">Communication, technologies et développement, no. 16 (UNESCO Chair)</p></div>
+        </li>
+        <li>
+          <div class="year">2021</div>
+          <div><a href="https://institute.global/insights/climate-and-energy/roadmap-managing-disasters-how-climate-vulnerable-countries-can-use-tech" target="_blank" rel="noopener noreferrer">A Roadmap for Managing Disasters: How Climate-Vulnerable Countries Can Use Tech</a><p class="pub">Tony Blair Institute for Global Change</p></div>
+        </li>
+        <li>
+          <div class="year">Ongoing</div>
+          <div><a href="https://medium.com/@sabahatiqbal" target="_blank" rel="noopener noreferrer">More writing on Medium</a><p class="pub">Articles and notes</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="wave" aria-hidden="true">
+    <svg viewBox="0 0 240 36" preserveAspectRatio="none"><rect width="240" height="36" fill="url(#seigaiha)" /></svg>
+  </div>
+
+  <section id="contact">
+    <div class="wrap contact">
       <div>
-        <h1>International Aid</h1>
-        <h1>+</h1>
-        <h1>Data Visualization</h1>
+        <h2>Contact</h2>
+        <p class="section-lede">Working on connectivity, digital public infrastructure, or AI for development? Get in touch.</p>
       </div>
+      <form id="contact-form" action="https://formspree.io/myywvbrz" method="POST">
+        <label for="fname">Name</label>
+        <input id="fname" name="fname" type="text" autocomplete="name" maxlength="100" required />
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required />
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" maxlength="5000" required></textarea>
+        <!-- Spam trap: hidden from people; Formspree drops messages where it's filled in -->
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" />
+        <button type="submit">Send message</button>
+      </form>
     </div>
-    <!-- END of WECLOME SECTION -->
+  </section>
 
-    <!-- ABOUT SECTION -->
-    <div id="about" class="main">
-      
-      <div class="about-box">
-        <div class="about-text">
-          <p>
-            My name is <strong>Sabahat Iqbal</strong>. This is a space for me to experiment with front-end development and especially data viz software. Since I often work with government-owned data from emerging markets, such as Pakistan, I decided to use that data as a jumping off point
-            to build interactive data
-            visualizations.
-            
-          </p>
-          <p>
-            Beyond the usual front-end stack (HTML, CSS, JS), I used
-            <a target="_blank" href="https://d3js.org/">d3.js</a> a lot and
-            <a target="_blank" href="https://reactjs.org/">ReactJS</a> a little.  
-          </p>
-          <!-- Add this back in eventually -->
-          <!-- <div class="row selfTaughtCurriculum">          
-            <div = class="col">
-              <a
-            class="ficons"
-            href="https://www.freecodecamp.org/learn/"
-            target="_blank"
-            ><i class="fab fa-free-code-camp fa-2x"></i><br>Free Code Camp</a>  
-            </div>
-            
-            <div = class="col">
-              <a
-            class="ficons"
-            href="https://www.udemy.com/course/masteringd3js/"
-            target="_blank"
-            ><i class="fas fa-chart-pie fa-2x"></i></i><br>Mastering data visualization in D3.js</a>
-            </div>
-            
-            <div = class="col">
-            <a
-            class="ficons"
-            href="https://www.udemy.com/course/javascript-object-oriented-programming/"
-            target="_blank"
-            ><i class="fab fa-js-square fa-2x"></i></i><br>Object-oriented Programming in JavaScript</a>
-            </div>
-
-            <div = class="col">
-            <a
-            class="ficons"
-            href="https://codewithmosh.com/p/mastering-react"
-            target="_blank"
-            ><i class="fab fa-react fa-2x"></i></i><br>CodeWithMosh - Mastering React</a>            
-            </div>           
-            </div> -->
-
-
-          </div>
-        </div>
-      </div>
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Sabahat Iqbal</span>
+      <span>
+        <a href="https://www.linkedin.com/in/sabahatiqbal" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/sabahatPK" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://medium.com/@sabahatiqbal" target="_blank" rel="noopener noreferrer">Medium</a>
+      </span>
     </div>
-    <!-- END of ABOUT SECTION -->
-
-    <!-- PROJECTS SECTION -->
-    <div id="projects" class="main">
-      <h2 class="center-text">Labors of Love (and other projects)</h2>
-      
-
-      <div class="project-grid">
-        <!-- Start of grid container for image tiles -->
-
-       
-
-        <div class="project-tile">
-          <a
-            target="_blank"
-            href="https://slope-charts.datadrivenpakistan.org/"
-          >
-            <img
-              class="tile-img"
-              src="img/Data4Pak-slopes-poverty-ind.jpg"
-              alt="Stock photo showing charts"
-            />
-            <p class="center-text">Data Driven Pakistan - part(i)
-            <div class="center-text">
-              <span class="badge badge-secondary">d3.js</span>
-              <span class="badge badge-secondary">slope-graph</span>
-              <span class="badge badge-secondary">OOP</span>
-            </div>
-            </p>
-          </a>
-        </div>
-
-        <div class="project-tile">
-          <a
-            target="_blank"
-            href="https://boxplots.datadrivenpakistan.org/"
-          >
-            <img
-              class="tile-img"
-              src="img/D4Pak_boxplot_v1.jpg"
-              alt="Stock photo showing charts"
-            />
-            <p class="center-text">Data Driven Pakistan - part(ii)
-              <div class="center-text">
-                <span class="badge badge-secondary">d3.js</span>
-                <span class="badge badge-secondary">boxplot</span>
-                <span class="badge badge-secondary">OOP</span>
-              </div>
-          
-              
-            </p>
-          </a>
-        </div>
-
-       
-
-        <div class="project-tile">
-          <a
-            target="_blank"
-            href="https://datadrivenpakistan.org/"
-          >
-            <img
-              class="tile-img"
-              src="img/D4Pak_Poverty.jpg"
-              alt="Stock photo showing charts"
-            />
-            <p class="center-text">Data Driven Pakistan - part(iii)
-              <div class="center-text">
-                <span class="badge badge-secondary">Python</span>                
-                <span class="badge badge-secondary">d3.js</span>                
-                <span class="badge badge-secondary">interactive</span>
-                <span class="badge badge-secondary">scatterplot</span>
-              </div>
-           
-            </p>
-          </a>
-        </div>
-
-        <div class="project-tile">
-          <a
-            target="_blank"
-            href="https://sabahatpk.github.io/DataDrivenPakistan/"
-          >
-            <img
-              class="tile-img"
-              src="img/DDP_v1.jpg"
-              alt="Stock photo showing charts"
-            />
-            <p class="center-text">Data Driven Pakistan - part (iv)
-              <div class="center-text">
-                <span class="badge badge-secondary">d3.js</span>
-                <span class="badge badge-secondary">interactive</span>
-                <span class="badge badge-secondary">stacked area chart</span>
-                <span class="badge badge-secondary">choropleth maps</span>
-                <span class="badge badge-secondary">OOP</span>
-              </div>
-           
-            </p>
-          </a>
-        </div>
-
-        <div class="project-tile">
-          <a
-            target="_blank"
-            href="https://sabahatpk.github.io/gapminder-clone/"
-          >
-            <img
-              class="tile-img"
-              src="img/GapMinderClone.jpg"
-              alt="Stock photo showing charts"
-            />
-            <p class="center-text">Clone of Gapminder chart
-              <div class="center-text">
-
-                <span class="badge badge-secondary">d3.js</span>                
-                <span class="badge badge-secondary">interactive</span>
-                <span class="badge badge-secondary">scatterplot</span>
-              </div>
-              
-            </p>
-          </a>
-        </div>
-
-        <!-- 
-        <div class="project-tile">
-          <a
-            target="_blank"
-            href="https://recipe-project.netlify.app/"
-          >
-            <img
-              class="tile-img"
-              src="img/What-should-I-cook.jpg"
-              alt="Stock photo showing charts"
-            />
-            <p class="center-text">What Should I Cook Tonight
-              <div class="center-text">
-                <span class="badge badge-secondary">ReactJS</span>
-              </div>
-           
-            </p>
-          </a>
-        </div>
-        -->
-
-         <div class="project-tile">
-          <a
-            target="_blank"
-            href="https://beaddataviz02nov2025.netlify.app/"
-          >
-            <img
-              class="tile-img"
-              src="img/bead-data-viz.png"
-              alt="thumbnail for bead data viz"
-            />
-            <p class="center-text">BEAD Funding Analysis
-              <div class="center-text">
-                <span class="badge badge-secondary">ReactJS</span>
-              </div>
-           
-            </p>
-          </a>
-        </div>
-
-      </div>
-      <!-- End of grid container for image tiles -->
-    </div>
-    
-    <!-- END of PROJECTS SECTION -->
-    
-
-    <!-- CONTACTS SECTION -->
-    <div id="contact" class="main">  
-      <h2 class="center-text">Got questions?</h2>
-       <!-- Form: -->
-       <div class="col-md-9">
-      
-        <form action="https://formspree.io/myywvbrz" method="POST">
-          <div class="form-group form-text">
-            <label class="control-label col-sm-2" for="fname"
-              >Name:</label
-            >
-            <div class="col-sm-8">
-              <input
-                type="text"
-                class="form-control"
-                id="fname"
-                placeholder="First and Last Name"
-                name="fname"
-                required
-              />
-            </div>
-          </div>
-
-          <div class="form-group form-text">
-            <label class="control-label col-sm-2" for="email">Email:</label>
-            <div class="col-sm-8">
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                placeholder="example@example.com"
-                name="email"
-                required
-              />
-            </div>
-          </div>
-
-          <div class="form-group form-text">
-            <label class="control-label col-sm-2" for="comment"
-              >Question/Comment/Feedback:</label
-            >
-            <div class="col-sm-8">
-              <textarea
-                name="message"
-                class="form-control"
-                rows="5"
-                id="comment"
-                required
-              ></textarea>
-            </div>
-          </div>
-
-          <div class="contact-form">
-              <div class="form-group form-text">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-secondary">Submit</button>
-                </div>
-              </div>
-            </div>
-        </form>
-
-       
-
-      </div>
-
-    </div>
-
-    <!-- END of CONTACTS SECTION -->
-
-    <footer class="center-text">
-      <div class="container fcontacts">
-          <a
-            class="ficons"
-            href="https://github.com/sabahatPK"
-            target="_blank"
-            ><i class="fab fa-github-square fa-2x"></i></a>
-          
-            <a
-            class="ficons"
-            href="https://www.linkedin.com/in/sabahatiqbal"
-            target="_blank"
-            ><i class="fab fa-linkedin fa-2x"></i> </a>
-            <a
-            class="ficons"
-            href="https://medium.com/@sabahatiqbal"
-            target="_blank"
-            
-            >
-            <i class="fab fa-medium fa-2x"></i>
-            </a>
-        </div>
   </footer>
-
-   
-    <script src="js/main.js"></script>
-  </body>
+</body>
 </html>
